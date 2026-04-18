@@ -1,0 +1,301 @@
+/*
+	Student #: 5884258
+	Student Name: Olivier César Muvuzankwaya
+    Projet Name: TPHJ Project - Building a responsive, multi-page website
+    File Name: styles.css
+    Date: 09/20/2025
+*/
+
+:root{
+	--accent:#0b7285;
+	--bg:#f8fafb;
+	--text:#213547;
+	--muted:#5a6b73;
+}
+
+html,body{
+	height:100%;
+}
+
+body{
+	font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+	margin:0;
+	color:var(--text);
+	background:var(--bg);
+	line-height:1.5;
+	padding-bottom:3rem;
+}
+
+/* Header, Nav */
+header{
+	background:linear-gradient(90deg,#072f4a, #0b7285); 
+	color:#fff;
+}
+.main-nav{
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	max-width:1100px;
+	margin:auto;
+	padding:0.75rem;
+}
+
+.site-title{
+	font-size:1.2rem;margin:0;
+}
+
+.nav-list{
+	list-style:none;
+	margin:0;
+	padding:0;
+	display:flex;
+	gap:1rem;
+}
+
+.nav-list li a{
+	color:#fff;
+	text-decoration:none;
+	padding:0.5rem;
+	border-radius:6px;
+}
+
+.nav-list li a:hover,.nav-list li a.active{
+	background:rgba(255,255,255,0.08);
+}
+
+/* Responsive menu button (for small viewports) */
+#menu-toggle, #menu-toggle-2, #menu-toggle-3, #menu-toggle-4{
+	display:none;
+	background:transparent;
+	border:1px solid rgba(255,255,255,0.15);
+	color:#fff;
+	padding:0.4rem 0.6rem;
+	border-radius:6px;
+}
+
+/* Layout */
+main{
+	max-width:1100px;
+	margin:1.25rem auto;
+	padding:0 1rem;
+	display:grid;
+	grid-template-columns:2fr 1fr;
+	gap:1rem;
+	align-items:start;
+}
+
+@media (max-width:900px){
+  main{
+	  grid-template-columns:1fr;
+  }
+  #menu-toggle, #menu-toggle-2, #menu-toggle-3, #menu-toggle-4{
+	  display:inline-block;
+  }
+  .nav-list{
+	  display:none;
+	  flex-direction:column;
+	  background:transparent;
+	  padding:0.5rem;
+	  position:absolute;
+	  right:1rem;
+	  top:3.5rem;
+	  border-radius:6px;
+	  color:#fff;
+  }
+  .nav-list.show{
+	  display:flex;
+  }
+}
+
+/* Hero */
+.hero{
+	background:#fff;
+	padding:1rem;
+	border-radius:8px;
+	box-shadow:0 1px 4px rgba(0,0,0,0.05);
+}
+
+.profile-img{
+	max-width:180px;
+	display:block;
+	margin:0.5rem 0;
+}
+
+/* Cards Grid */
+.grid{
+	display:grid;
+	grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+	gap:0.75rem;
+}
+
+.cards .card{
+	background:#fff;
+	padding:1rem;
+	border-radius:8px;
+	box-shadow:0 1px 3px rgba(0,0,0,0.04);
+	line-height: 0.5;
+}
+
+/* Aside */
+.aside-note{
+	background:#fff;
+	padding:1rem;
+	border-radius:8px;
+	box-shadow:0 1px 4px rgba(0,0,0,0.04);
+	line-height: 0.5;
+}
+
+/* Footer */
+footer{
+	text-align:center;
+	padding:1rem;
+	margin-top:1rem;
+	color:var(--muted);
+}
+
+/* Forms */
+form input, form textarea{
+	width:100%;
+	padding:0.6rem;
+	border:1px solid #d1d5db;
+	border-radius:6px;
+	margin-bottom:0.5rem;
+}
+
+button{
+	background:var(--accent);
+	color:#fff;
+	border:none;
+	padding:0.6rem 0.9rem;
+	border-radius:6px;
+	cursor:pointer;
+}
+
+button:focus{
+	outline:3px solid rgba(11,114,133,0.25);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+    width: 60px;
+}
+
+.welcome-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  padding: 1.2rem 2rem;
+  max-width: 600px;
+  width: 90%;
+  border-radius: 10px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-size: 1.2rem;
+  z-index: 9999;
+  animation: fadeOut 1s ease-in-out 2s forwards;
+}
+
+/* Smooth fade-out */
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -60%); /* slight upward shift */
+  }
+}
+
+/* Preview box */
+.preview-box{
+	min-height:3rem;
+	background:#fff;
+	padding:0.5rem;
+	border-radius:6px;
+	border:1px solid #e6eef0;
+	white-space:pre-wrap;
+}
+
+/* Accessible focus styles */
+a:focus,button:focus,input:focus,textarea:focus{
+	outline:2px dashed #0b7285;
+	outline-offset:3px;
+}
+
+/* Dark theme toggle support */
+body.dark{
+	background:#071324;
+	color:#e6eef5;
+}
+
+body.dark header{
+	background:linear-gradient(90deg,#021627,#022f3d);
+}
+
+/* Small tweaks */
+.media-card{
+	background:#fff;
+	padding:1rem;
+	border-radius:8px;
+	margin-bottom:1rem;
+}
+
+/* Print friendly */
+@media print{
+  header, footer, button{
+	  display:none;
+  }
+  main{
+	  grid-template-columns:1fr;
+  }
+}
+
+
+/* Default light theme */
+body {
+  background: #f9f9f9;
+  color: #222;
+  padding:1rem;  
+}
+
+section, aside, article {
+  background: #fff;
+  color: inherit;
+  transition: background 0.3s, color 0.3s;
+  padding:1rem;  
+}
+
+/* Dark theme overrides */
+body.dark {
+  background: #121212;
+  color: #eee;
+  padding:1rem;  
+}
+
+body.dark section,
+body.dark article,
+body.dark aside {
+  background: #1e1e1e;
+  color: #eee;
+  padding:1rem;  
+}
+
+body.dark a {
+  color: #80b3ff;
+  padding:1rem;  
+}
+
+body.dark .card {
+  background: #2a2a2a;
+  border-color: #444;
+  padding:1rem;
+}
+
+

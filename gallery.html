@@ -1,0 +1,69 @@
+<!--
+    Student #: 5884258
+    Student Name: Olivier César Muvuzankwaya
+    Projet Name: TPHJ Project - Building a responsive, multi-page website
+    File Name: gallery.html
+    Date: 09/20/2025
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gallery - Olivier César Muvuzankwaya</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/images/logo.png" type="image/x-icon" />
+</head>
+
+<body>
+  <header>
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="logo">
+        <img src="assets/images/resume.png" alt="App Logo" />
+        <div>
+          <h1 class="site-title">Olivier César Muvuzankwaya</h1>
+        </div>
+      </div>
+      <button id="menu-toggle-3" aria-expanded="false" aria-controls="primary-menu-3">Menu</button>
+      <ul id="primary-menu-3" class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading">Project Gallery</h2>
+      <p>Below is an image and a short demonstration video (video is optional fallback if not supported).</p>
+      <article class="media-card">
+        <h3>Profile Illustration</h3>
+        <img src="assets/images/profile.jpeg" alt="Profile illustration" width="300">
+        <figcaption>Project Profile illustration</figcaption>
+      </article>
+
+      <article class="media-card">
+        <h3>Demo Video (progressive enhancement)</h3>
+        <video controls preload="metadata" width="480">
+          <source src="assets/media/sample-video.mp4" type="video/mp4">
+          Your browser does not support the video element.
+        </video>
+        <p>If the video doesn't play, the project description is still visible below.</p>
+        <p class="project-desc">EBanking Solution — ASP.NET Core MVC, PostgreSQL. Secure login, transactions, account
+          management.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Olivier César Muvuzankwaya. All rights reserved.</p>
+  </footer>
+
+  <script src="js/scripts.js" defer></script>
+</body>
+
+</html>

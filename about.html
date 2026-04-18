@@ -1,0 +1,76 @@
+<!--
+    Student #: 5884258
+    Student Name: Olivier César Muvuzankwaya
+    Projet Name: TPHJ Project - Building a responsive, multi-page website
+    File Name: about.html
+    Date: 09/20/2025
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About - Olivier César Muvuzankwaya</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/images/logo.png" type="image/x-icon" />
+</head>
+
+<body>
+  <header>
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="logo">
+        <img src="assets/images/resume.png" alt="App Logo" />
+        <div>
+          <h1 class="site-title">Olivier César Muvuzankwaya</h1>
+        </div>
+      </div>
+      <button id="menu-toggle-2" aria-expanded="false" aria-controls="primary-menu-2">Menu</button>
+      <ul id="primary-menu-2" class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section style="width:580px" ; aria-labelledby="about-heading">
+      <h2 id="about-heading">About Me</h2>
+      <p>I'm Olivier César Muvuzankwaya, a software developer specializing in .NET, web applications, and database
+        design. I value clean code, accessibility, and maintainable architecture.</p>
+    </section>
+
+    <section style="width:470px" ; aria-labelledby="education-heading">
+      <h2 id="education-heading">Education</h2>
+      <article>
+        <h3>Diploma in Mobile & Web Developer</h3>
+        <p>Sundance College (Canada) | 2025 – Present</p>
+      </article>
+      <article>
+        <h3>BBA, Information Technology</h3>
+        <p>Adventist University of Central Africa (Rwanda) | 2001 – 2004</p>
+      </article>
+    </section>
+
+    <section style="width:580px" ; aria-labelledby="media-heading">
+      <h2 id="media-heading">A short audio introduction</h2>
+      <p>This audio clip is provided as progressive enhancement. If JavaScript is disabled the audio player is still
+        usable.</p>
+      <audio controls preload="metadata">
+        <source src="assets/media/sample-audio.wav" type="audio/wav">
+        Your browser does not support the audio element.
+      </audio>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Olivier César Muvuzankwaya. All rights reserved.</p>
+  </footer>
+
+  <script src="js/scripts.js" defer></script>
+</body>
+
+</html>

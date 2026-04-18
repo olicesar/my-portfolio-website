@@ -1,0 +1,72 @@
+<!--
+    Student #: 5884258
+    Student Name: Olivier César Muvuzankwaya
+    Projet Name: TPHJ Project - Building a responsive, multi-page website
+    File Name: index.html
+    Date: 09/20/2025
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Index - Olivier César Muvuzankwaya</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/images/logo.png" type="image/x-icon" />
+  <meta name="description" content="Resume website for Olivier César Muvuzankwaya - .NET Web Developer" />
+</head>
+
+<body>
+  <header>
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="logo">
+        <img src="assets/images/resume.png" alt="App Logo" />
+        <div>
+          <h1 class="site-title">Olivier César Muvuzankwaya</h1>
+        </div>
+      </div>
+      <button id="menu-toggle" aria-expanded="false" aria-controls="primary-menu">Menu</button>
+      <ul id="primary-menu" class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero" aria-labelledby="hero-heading">
+      <h2 id="hero-heading">Hello — I'm Olivier César Muvuzankwaya</h2>
+      <p class="tagline">Experienced .NET Web Developer. Building secure, accessible web and desktop applications.</p>
+      <img src="assets/images/Photo.jpg" alt="Profile illustration of Olivier César Muvuzankwaya" class="profile-img">
+      <p><button style="width:180px;" id="show-bio">Show / Hide Short Bio</button></p>
+      <article id="short-bio" class="bio" aria-labelledby="bio-heading">
+        <h3 id="bio-heading">Short Bio</h3>
+        <p>I have 15+ years in software development and maintenance, experienced in ASP.NET, databases, and Agile
+          delivery. Currently studying Mobile & Web Development in Canada, at Sundance College.</p>
+      </article>
+      <aside class="aside-note" aria-label="Quick contact">
+        <h2 style="line-height: 1.5;">Quick Contact</h2>
+        <p>Email: <a href="mailto:omuvuzankwaya5884258@mysundance.ca">omuvuzankwaya5884258@mysundance.ca</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/muvuzankwaya-olivier-cesar">Olivier César M.</a></p>
+      </aside>
+    </section>
+
+    <section id="skills" class="cards" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Key Skills</h2>
+      <p><button id="load-skills">Load Skills (JS)</button></p>
+      <div id="skills-list" class="grid"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Olivier César Muvuzankwaya. All rights reserved.</p>
+  </footer>
+  <script src="js/scripts.js" defer></script>
+</body>
+
+</html>

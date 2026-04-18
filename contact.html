@@ -1,0 +1,63 @@
+<!--
+    Student #: 5884258
+    Student Name: Olivier César Muvuzankwaya
+    Projet Name: TPHJ Project - Building a responsive, multi-page website
+    File Name: contact.html
+    Date: 09/20/2025
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact - Olivier César Muvuzankwaya</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/images/logo.png" type="image/x-icon" />
+</head>
+
+<body>
+  <header>
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="logo">
+        <img src="assets/images/resume.png" alt="App Logo" />
+        <div>
+          <h1 class="site-title">Olivier César Muvuzankwaya</h1>
+        </div>
+      </div>
+      <button id="menu-toggle-4" aria-expanded="false" aria-controls="primary-menu-4">Menu</button>
+      <ul id="primary-menu-4" class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact Me</h2>
+      <form style="width:650px" ; id="contact-form" action="#" method="post" novalidate>
+        <label for="name">Name</label><br>
+        <input id="name" name="name" type="text" required><br>
+        <label for="email">Email</label><br>
+        <input id="email" name="email" type="email" required><br>
+        <label for="message">Message <span id="char-count">(0 / 500)</span></label><br>
+        <textarea id="message" name="message" rows="6" cols="5" maxlength="500" required></textarea><br>
+        <button type="submit">Send Message</button>
+      </form>
+      <br>
+      <div id="form-result" role="status" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Olivier César Muvuzankwaya. All rights reserved.</p>
+  </footer>
+
+  <script src="js/scripts.js" defer></script>
+</body>
+
+</html>
