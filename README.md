@@ -24,12 +24,6 @@ Personal resume and portfolio website built with HTML, CSS, and JavaScript
 - js/scripts.js
 - assets/
 
-## 📸 Screenshots
-(Add 2–3 screenshots here)
-
-## 🌐 Live Demo
-(Add GitHub Pages link here later)
-
 ## 📚 What I Learned
 - Building responsive layouts using Flexbox/Grid
 - Writing clean and semantic HTML
