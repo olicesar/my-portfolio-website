@@ -1,6 +1,6 @@
 /*
-	Student #: 5884258
-	Student Name: Olivier César Muvuzankwaya
+    Student #: 5884258
+    Student Name: Olivier César Muvuzankwaya
     Projet Name: TPHJ Project - Building a responsive, multi-page website
     File Name: styles.css
     Date: 09/20/2025
@@ -88,22 +88,44 @@ main{
   main{
 	  grid-template-columns:1fr;
   }
-  #menu-toggle, #menu-toggle-2, #menu-toggle-3, #menu-toggle-4{
-	  display:inline-block;
-  }
+#menu-toggle, #menu-toggle-2, #menu-toggle-3, #menu-toggle-4{
+  display:inline-block;
+  background:#0b7285;
+  border:none;
+  color:#fff;
+  padding:0.6rem 1rem;
+  border-radius:6px;
+  font-size:1rem;
+  cursor:pointer;
+}
+
   .nav-list{
-	  display:none;
-	  flex-direction:column;
-	  background:transparent;
-	  padding:0.5rem;
-	  position:absolute;
-	  right:1rem;
-	  top:3.5rem;
-	  border-radius:6px;
-	  color:#fff;
+    display:none;
+    flex-direction:column;
+    background:#0b7285; /* solid background */
+    padding:0.75rem;
+    position:absolute;
+    right:1rem;
+    top:4rem;
+    border-radius:8px;
+    width: 200px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.25);
+    z-index:999;
   }
+
   .nav-list.show{
-	  display:flex;
+    display:flex;
+  }
+
+  .nav-list li a{
+    padding:0.75rem;
+    border-radius:6px;
+    color:#fff;
+    font-size:1rem;
+  }
+
+  .nav-list li a:hover{
+    background:rgba(255,255,255,0.15);
   }
 }
 
