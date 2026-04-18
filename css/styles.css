@@ -399,6 +399,7 @@ img {
   text-align:center;
 }
 
+
 section {
   margin-bottom: 1.5rem;
 }
@@ -417,4 +418,16 @@ main {
 
 section {
   border-radius:12px;
+}
+
+body {
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+h2 {
+  font-size: 1.4rem;
 }
