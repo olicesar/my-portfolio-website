@@ -2,7 +2,7 @@
 Personal resume and portfolio website built with HTML, CSS, and JavaScript
 
 ## 🚀 Features
-- Multi-page navigation (Home, About, Gallery, Contact)
+- Multi-page navigation (Home, About, Projects, Contact)
 - Responsive design (mobile & desktop)
 - Semantic HTML5 structure
 - Interactive JavaScript features
