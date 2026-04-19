@@ -1,3 +1,10 @@
+/*
+  Author: Olivier César Muvuzankwaya
+  Project: My Portfolio Project
+  File: scripts.css
+  Updated: 2026/04/18
+*/
+
 // Utility: safe query
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
@@ -78,11 +85,11 @@ document.addEventListener('DOMContentLoaded', () => {
         skillsList.appendChild(card);
       }
 
-      skillsBtn.textContent = 'Unload Skills';
+      skillsBtn.textContent = 'Hide Technical Skills';
       skillsLoaded = true;
     } else {
       skillsList.innerHTML = '';
-      skillsBtn.textContent = 'Load Skills';
+      skillsBtn.textContent = 'View Technical Skills';
       skillsLoaded = false;
     }
   }
@@ -96,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // -------------------------------
   
    const themeBtn = document.createElement('button');
-   themeBtn.textContent = 'Toggle Theme';
+   themeBtn.textContent = '☀️ Light/Dark';
    themeBtn.style.cssText = 'position:fixed;right:1rem;bottom:1rem;z-index:999;';
    document.body.appendChild(themeBtn);
 
