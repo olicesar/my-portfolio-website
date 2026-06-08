@@ -1,78 +1,114 @@
 <!--
   Author: Olivier César Muvuzankwaya
-  Project: My Portfolio Project
   File: gallery.html
-  Updated: 2026/04/18
 -->
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Olivier César Muvuzankwaya</title>
+  <title>Projects — Olivier César Muvuzankwaya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" href="assets/images/logo.png" type="image/x-icon" />
 </head>
-
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <header>
     <nav class="main-nav" aria-label="Main navigation">
-      <div class="logo">
-        <img src="assets/images/resume.png" alt="App Logo" />
-        <div>
-          <h1 class="site-title">Olivier César Muvuzankwaya</h1>
-        </div>
-      </div>
-      <button id="menu-toggle-3" aria-expanded="false" aria-controls="primary-menu-3">☰</button>
-      <ul id="primary-menu-3" class="nav-list">
+      <a href="index.html" class="logo">
+        <img src="assets/images/resume.png" alt="" aria-hidden="true" />
+        <span class="site-title">Olivier César</span>
+      </a>
+      <ul id="primary-nav" class="nav-list" role="list">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="gallery.html" class="active">Projects</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+      <div class="nav-controls">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme">🌓</button>
+        <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">☰</button>
+      </div>
     </nav>
   </header>
 
-  <main>
-    <h2 class="center-title">Projects</h2>
-	<article class="media-card">
-	  <h3>VB.NET & SQL Server Specialist</h3>
-	  <p>
-		With a solid background in the IT industry, I have contributed to the development of enterprise desktop applications using VB.NET and SQL Server. 
-        My experience spans multiple roles, including analyst, developer, and tester, enabling me to deliver reliable, scalable, and high-performance solutions across diverse projects in Rwanda and a few across East Africa.
-	  </p>
-	</article>
+  <main id="main-content">
+    <div class="page-header reveal">
+      <span class="section-label">Work</span>
+      <h2>Projects</h2>
+      <p>A selection of things I've built — from enterprise systems to modern web applications.</p>
+    </div>
 
-	<article class="media-card">
-	  <h3>Portfolio Website (This Project)</h3>
-	  <p>
-		Responsive multi-page website built using HTML5, CSS3, and JavaScript.
-		Focus on accessibility, responsive design, and progressive enhancement.
-	  </p>
-	  <p><strong>Key Features:</strong></p>
-	  <ul>
-		<li>Responsive layout using Flexbox & Grid</li>
-		<li>Interactive UI with JavaScript</li>
-		<li>Form validation and dynamic content</li>
-	  </ul>
-	</article>
+    <div class="projects-grid">
 
-	<article class="media-card">
-	  <h3>EBanking Solution (In Progress)</h3>
-	  <p>
-		Full-stack banking application built with ASP.NET Core MVC and PostgreSQL.
-		Designed to simulate real-world banking operations.
-	  </p>
-	  <p><strong>Planned Features:</strong></p>
-	  <ul>
-		<li>User authentication & authorization</li>
-		<li>Account management</li>
-		<li>Transaction processing</li>
-	  </ul>
-	  <p><em>Project will be published soon.</em></p>
-	</article>
+      <article class="project-card reveal">
+        <div class="project-card-header">
+          <h3>Enterprise Desktop Apps</h3>
+          <span class="project-status status-live">Production</span>
+        </div>
+        <p>
+          15+ years contributing to enterprise desktop applications using VB.NET and SQL Server across Rwanda and East Africa. Roles spanning analyst, developer, and tester delivering scalable, high-performance solutions.
+        </p>
+        <div class="project-features">
+          <span class="project-feature">Banking &amp; enterprise systems</span>
+          <span class="project-feature">Full SDLC — analysis to deployment</span>
+          <span class="project-feature">Multi-country delivery across East Africa</span>
+        </div>
+        <div class="project-footer">
+          <span class="tag">VB.NET</span>
+          <span class="tag">SQL Server</span>
+          <span class="tag">C#</span>
+          <span class="tag">Agile</span>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-card-header">
+          <h3>Portfolio Website</h3>
+          <span class="project-status status-live">Live</span>
+        </div>
+        <p>
+          This site — a responsive multi-page portfolio built with HTML5, CSS3, and vanilla JavaScript. Focus on accessibility, progressive enhancement, and responsive design.
+        </p>
+        <div class="project-features">
+          <span class="project-feature">Responsive layout — Flexbox &amp; Grid</span>
+          <span class="project-feature">Dark mode with OS preference support</span>
+          <span class="project-feature">Accessible forms &amp; keyboard navigation</span>
+          <span class="project-feature">Zero dependencies — pure vanilla JS</span>
+        </div>
+        <div class="project-footer">
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-card-header">
+          <h3>eBanking Solution</h3>
+          <span class="project-status status-progress">In Progress</span>
+        </div>
+        <p>
+          Full-stack banking application built with ASP.NET Core MVC and PostgreSQL. Designed to simulate real-world banking operations with authentication, account management, and transaction processing.
+        </p>
+        <div class="project-features">
+          <span class="project-feature">User authentication &amp; authorization</span>
+          <span class="project-feature">Account management &amp; dashboards</span>
+          <span class="project-feature">Transaction processing engine</span>
+        </div>
+        <div class="project-footer">
+          <span class="tag">ASP.NET Core</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Razor Pages</span>
+          <span class="tag">C#</span>
+        </div>
+      </article>
+
+    </div>
   </main>
 
   <footer>
@@ -81,5 +117,4 @@
 
   <script src="js/scripts.js" defer></script>
 </body>
-
 </html>
