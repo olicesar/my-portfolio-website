@@ -1,92 +1,116 @@
 <!--
   Author: Olivier César Muvuzankwaya
-  Project: My Portfolio Project
   File: index.html
-  Updated: 2026/04/18
 -->
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Olivier César Muvuzankwaya</title>
+  <title>Olivier César Muvuzankwaya — .NET Developer</title>
+  <meta name="description" content="Senior .NET Developer with 15+ years experience. Specializing in ASP.NET Core, Razor Pages, and PostgreSQL. Open to Junior/Intermediate opportunities in Canada." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" href="assets/images/logo.png" type="image/x-icon" />
-  <meta name="description" content="Resume website for Olivier César Muvuzankwaya - .NET Web Developer" />
 </head>
-
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <header>
     <nav class="main-nav" aria-label="Main navigation">
-      <div class="logo">
-        <img src="assets/images/resume.png" alt="App Logo" />
-        <div>
-          <h1 class="site-title">Olivier César Muvuzankwaya</h1>
-        </div>
-      </div>
-      <button id="menu-toggle" aria-expanded="false" aria-controls="primary-menu">☰</button>
-      <ul id="primary-menu" class="nav-list">
-        <li><a href="index.html">Home</a></li>
+      <a href="index.html" class="logo">
+        <img src="assets/images/resume.png" alt="" aria-hidden="true" />
+        <span class="site-title">Olivier César M.</span>
+      </a>
+      <ul id="primary-nav" class="nav-list" role="list">
+        <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="gallery.html">Projects</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+      <div class="nav-controls">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme">🌓</button>
+        <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">☰</button>
+      </div>
     </nav>
   </header>
 
-  <main class="home-layout">
-    <section id="hero" class="hero" aria-labelledby="hero-heading">
-      <h2 id="hero-heading">Hello — I'm Olivier César Muvuzankwaya</h2>
-	  <p><strong>.NET Web Developer with 15+ years in software development</strong></p>
-      <p>Currently specializing in modern web applications using ASP.NET Core, Razor Pages, and PostgreSQL.</p>
-      <p><strong>Actively seeking Junior/Intermediate .NET Developer opportunities in Canada</strong></p>	  
-      <img src="assets/images/photo.jpg" alt="Profile illustration of Olivier César Muvuzankwaya" class="profile-img">
-	  <button id="show-bio">View Professional Summary</button>
-      <article id="short-bio" class="bio" aria-labelledby="bio-heading">
-        <h3 id="bio-heading">Short Bio</h3>
-        <p>I have 15+ years in software development and maintenance, experienced in ASP.NET, databases, and Agile
-          delivery. Transitioning from enterprise desktop systems to modern web applications. Currently studying Mobile & Web Development in Canada, at Sundance College.</p>
-      </article>
-	  <section>
-	    <h2>Let’s Connect</h2>
-        <p>I am currently open to opportunities and collaborations.
-           Feel free to reach out via LinkedIn or the contact form.
+  <main id="main-content">
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-body">
+        <div class="hero-eyebrow">Open to opportunities · Canada</div>
+        <h1 class="hero-title" id="hero-heading">
+          Olivier César<br>
+          <span class="accent-word">Muvuzankwaya</span>
+        </h1>
+        <p class="hero-subtitle">
+          Senior .NET Developer with 15+ years building enterprise systems — now focused on modern web with ASP.NET Core, Razor Pages, and PostgreSQL.
         </p>
-      </section>
+        <div class="hero-ctas">
+          <a href="gallery.html" class="btn btn-primary">View Projects →</a>
+          <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+          <a href="about.html" class="btn btn-ghost">About me</a>
+        </div>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">Experience</span>
+            <span class="hero-meta-value">15+ years</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">Focus</span>
+            <span class="hero-meta-value">ASP.NET Core</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">Location</span>
+            <span class="hero-meta-value">Canada</span>
+          </div>
+        </div>
 
-		<aside class="aside-note" aria-label="Quick contact">
-		  <h2 class="center-title">Quick Contact</h2>
-		  <p>
-			<span class="icon">📧</span>
-			Email:
-			<a href="mailto:olicesar@email.com">
-			  olicesar@email.com
-			</a>
-		  </p>
+        <div class="bio-section reveal">
+          <h3>Professional Summary</h3>
+          <button class="btn btn-ghost" id="show-bio" aria-expanded="false" aria-controls="short-bio" style="margin-bottom: 0.75rem; padding-left:0;">
+            + Show summary
+          </button>
+          <div id="short-bio" role="region" aria-label="Professional summary">
+            <p>15+ years in software development and maintenance, experienced in ASP.NET, databases, and Agile delivery. Transitioning from enterprise desktop systems to modern web applications. Currently studying Mobile &amp; Web Development at Sundance College, Canada.</p>
+          </div>
+        </div>
 
-		  <p>
-			<span class="icon">🔗</span>
-			LinkedIn:
-			<a href="https://www.linkedin.com/in/muvuzankwaya-olivier-cesar">
-			  Olivier César M.
-			</a>
-		  </p>
-		</aside>
+        <div class="skills-section reveal">
+          <h3>Technical Skills</h3>
+          <button class="btn btn-ghost" id="load-skills" aria-expanded="false" aria-controls="skills-list" style="margin-bottom: 0.75rem; padding-left:0;">
+            + Show skills
+          </button>
+          <div id="skills-list" role="region" aria-label="Skills list"></div>
+        </div>
+      </div>
+
+      <div class="hero-aside">
+        <div class="profile-img-wrap">
+          <img src="assets/images/photo.jpg" alt="Olivier César Muvuzankwaya" class="profile-img" />
+        </div>
+        <div class="availability-badge">Available for hire</div>
+        <div class="contact-card">
+          <p class="contact-card-title">Quick contact</p>
+          <a href="mailto:olicesar@email.com" class="contact-link">
+            <span class="contact-link-icon">📧</span>
+            <span>olicesar@email.com</span>
+          </a>
+          <a href="https://www.linkedin.com/in/muvuzankwaya-olivier-cesar" class="contact-link" target="_blank" rel="noopener">
+            <span class="contact-link-icon">🔗</span>
+            <span>LinkedIn Profile</span>
+          </a>
+        </div>
+      </div>
     </section>
-    <section id="skills" class="cards" aria-labelledby="skills-heading">
-      <h2 id="skills-heading">Key Skills</h2>
-      <p><button id="load-skills">View Technical Skills</button></p>
-      <div id="skills-list" class="grid"></div>
-    </section>
-
   </main>
 
   <footer>
     <p>&copy; 2026 Olivier César Muvuzankwaya. All rights reserved.</p>
   </footer>
+
   <script src="js/scripts.js" defer></script>
 </body>
-
 </html>
