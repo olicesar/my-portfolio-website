@@ -1,81 +1,109 @@
 <!--
   Author: Olivier César Muvuzankwaya
-  Project: My Portfolio Project
   File: about.html
-  Updated: 2026/04/18
 -->
-
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Olivier César Muvuzankwaya</title>
+  <title>About — Olivier César Muvuzankwaya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" href="assets/images/logo.png" type="image/x-icon" />
 </head>
-
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <header>
     <nav class="main-nav" aria-label="Main navigation">
-      <div class="logo">
-        <img src="assets/images/resume.png" alt="App Logo" />
-        <div>
-          <h1 class="site-title">Olivier César Muvuzankwaya</h1>
-        </div>
-      </div>
-      <button id="menu-toggle-2" aria-expanded="false" aria-controls="primary-menu-2">☰</button>
-      <ul id="primary-menu-2" class="nav-list">
+      <a href="index.html" class="logo">
+        <img src="assets/images/resume.png" alt="" aria-hidden="true" />
+        <span class="site-title">Olivier César</span>
+      </a>
+      <ul id="primary-nav" class="nav-list" role="list">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html" class="active">About</a></li>
         <li><a href="gallery.html">Projects</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+      <div class="nav-controls">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme">🌓</button>
+        <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">☰</button>
+      </div>
     </nav>
   </header>
 
-  <main class="center-text">
-    <section>
-	  <h2>Professional Summary</h2>
-	  <p>
-		Software developer with over 15 years of experience in designing, developing, and maintaining business applications,
-		including banking and enterprise systems. Recently transitioned to modern web development with a focus on
-		ASP.NET Core, Razor Pages, and responsive UI design.
-	  </p>
-	  <p>
-		Strong background in backend systems, database design, and application architecture, combined with a growing
-		expertise in front-end technologies and user experience.
-	  </p>
-	</section>
+  <main id="main-content">
+    <div class="page-header reveal">
+      <span class="section-label">Background</span>
+      <h2>About Me</h2>
+      <p>Software developer with over 15 years of experience — now building for the web.</p>
+    </div>
 
-	<section>
-	  <h2>Tech Stack</h2>
-	  <p>
-		ASP.NET Core • VB.NET • C# • Razor Pages • PostgreSQL • SQL Server • HTML5 • CSS3 • JavaScript • Git • Agile
-	  </p>
-	</section>
-    <section>
-      <h2>Education</h2>
+    <div class="about-grid">
 
-        <h3>Diploma in Mobile & Web Developer</h3>
-        <p>Sundance College (Canada) | March-2025 – Expected: 06/2026 </p>
+      <div class="card reveal">
+        <span class="section-label">Summary</span>
+        <h3>Professional Summary</h3>
+        <p style="margin-top: 0.75rem;">
+          Software developer with over 15 years of experience designing, developing, and maintaining business applications — including banking and enterprise systems.
+        </p>
+        <p>
+          Recently transitioned to modern web development with a focus on ASP.NET Core, Razor Pages, and responsive UI design. Strong background in backend systems, database design, and application architecture.
+        </p>
+      </div>
 
-        <h3>BBA, Information Technology</h3>
-        <p>Adventist University of Central Africa (Rwanda) | 2001 – 2005</p>
+      <div class="card reveal">
+        <span class="section-label">Stack</span>
+        <h3>Tech Stack</h3>
+        <div class="tech-tags" style="margin-top: 0.75rem;">
+          <span class="tag">ASP.NET Core</span>
+          <span class="tag">C#</span>
+          <span class="tag">VB.NET</span>
+          <span class="tag">Razor Pages</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">SQL Server</span>
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Git</span>
+          <span class="tag">Agile</span>
+        </div>
+      </div>
 
-    </section>
+      <div class="card full-width reveal">
+        <span class="section-label">Education</span>
+        <h3>Academic Background</h3>
+        <div style="margin-top: 0.75rem;">
+          <div class="edu-entry">
+            <div class="edu-degree">Diploma in Mobile &amp; Web Development</div>
+            <div class="edu-school">Sundance College — Calgary, Canada</div>
+            <div class="edu-year">March 2025 – Expected June 2026</div>
+          </div>
+          <div class="edu-entry">
+            <div class="edu-degree">BBA, Information Technology</div>
+            <div class="edu-school">Adventist University of Central Africa — Rwanda</div>
+            <div class="edu-year">2001 – 2005</div>
+          </div>
+        </div>
+      </div>
 
-    <section>
-      <h2 id="media-heading">A short audio introduction</h2>
-      <p>This audio clip is provided as progressive enhancement.
-        usable.</p>
-      <audio controls preload="metadata">
-        <source src="assets/media/sample-audio.wav" type="audio/wav">
-        Your browser does not support the audio element.
-      </audio>
-    </section>
+      <div class="card full-width reveal">
+        <span class="section-label">Introduction</span>
+        <h3 id="audio-heading">A short audio introduction</h3>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+          A brief audio clip — provided as progressive enhancement and works without JavaScript.
+        </p>
+        <audio controls preload="metadata" aria-labelledby="audio-heading">
+          <source src="assets/media/sample-audio.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+
+    </div>
   </main>
 
   <footer>
@@ -84,5 +112,4 @@
 
   <script src="js/scripts.js" defer></script>
 </body>
-
 </html>
