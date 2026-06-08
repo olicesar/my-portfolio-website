@@ -1,188 +1,224 @@
 /*
   Author: Olivier César Muvuzankwaya
-  Project: My Portfolio Project
-  File: scripts.css
-  Updated: 2026/04/18
+  File: scripts.js
 */
 
-// Utility: safe query
+// ============================================================
+// UTILS
+// ============================================================
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
 document.addEventListener('DOMContentLoaded', () => {
-  // -------------------------------
-  // Welcome message (index only)
-  // -------------------------------
-  if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
-    const welcome = document.createElement('div');
-    welcome.setAttribute('role', 'alert');
-    welcome.className = 'welcome-box';
-    welcome.textContent = 'Welcome! Thank you for visiting.';
-    document.body.prepend(welcome);
 
-    setTimeout(() => {
-      welcome.style.display = 'none';
-    }, 3000);
+  // ============================================================
+  // THEME TOGGLE
+  // Reads OS preference on first load; persists manual overrides
+  // ============================================================
+  const themeBtn = $('#theme-toggle');
+  const root = document.documentElement;
+
+  function getTheme() {
+    const saved = localStorage.getItem('theme');
+    if (saved) return saved;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
 
-  // -------------------------------
-  // Menu toggle for small screens
-  // -------------------------------
-  $$('#menu-toggle, #menu-toggle-2, #menu-toggle-3, #menu-toggle-4').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const id = btn.getAttribute('aria-controls');
-      const menu = document.getElementById(id);
-      if (menu) {
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!expanded));
-        menu.classList.toggle('show');
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    if (themeBtn) themeBtn.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+  }
+
+  applyTheme(getTheme());
+
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      localStorage.setItem('theme', next);
+    });
+  }
+
+  // ============================================================
+  // MOBILE NAV
+  // Single unified toggle — works on every page via same IDs
+  // ============================================================
+  const menuToggle = $('#menu-toggle');
+  const navList    = $('#primary-nav');
+
+  if (menuToggle && navList) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navList.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.textContent = isOpen ? '✕' : '☰';
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!menuToggle.contains(e.target) && !navList.contains(e.target)) {
+        navList.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = '☰';
       }
     });
-  });
 
-  // -------------------------------
-  // Show / Hide bio
-  // -------------------------------
-  const bio = $('#short-bio');
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navList.classList.contains('open')) {
+        navList.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = '☰';
+        menuToggle.focus();
+      }
+    });
+  }
+
+  // ============================================================
+  // WELCOME TOAST (index only)
+  // ============================================================
+  const isHome = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
+  if (isHome) {
+    const toast = document.createElement('div');
+    toast.className = 'welcome-toast';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+    toast.textContent = '👋 Welcome — thanks for visiting!';
+    document.body.appendChild(toast);
+    // CSS animation handles the fade-out; remove from DOM after
+    setTimeout(() => toast.remove(), 3200);
+  }
+
+  // ============================================================
+  // SHOW / HIDE BIO (index)
+  // CSS max-height transition — no display:none flash
+  // ============================================================
   const bioBtn = $('#show-bio');
+  const bio    = $('#short-bio');
+
   if (bioBtn && bio) {
+    // Start closed
+    bio.classList.remove('open');
+    bioBtn.setAttribute('aria-expanded', 'false');
+
     bioBtn.addEventListener('click', () => {
-      bio.style.display = (bio.style.display === 'none') ? '' : 'none';
+      const isOpen = bio.classList.toggle('open');
+      bioBtn.setAttribute('aria-expanded', String(isOpen));
+      bioBtn.textContent = isOpen ? '− Hide summary' : '+ Show summary';
     });
   }
 
-  // -------------------------------
-  // Load / Unload skills
-  // -------------------------------
-  const skillsBtn = document.getElementById('load-skills');
-  const skillsList = document.getElementById('skills-list');
-  let skillsLoaded = false;
+  // ============================================================
+  // SKILLS TOGGLE (index)
+  // ============================================================
+  const skillsBtn  = $('#load-skills');
+  const skillsList = $('#skills-list');
 
-  function formatSkillCard(skill) {
-    const art = document.createElement('article');
-    art.className = 'card';
-    const h = document.createElement('h4');
-    h.textContent = skill.name;
-    const p = document.createElement('p');
-    p.textContent = skill.level;
-    art.append(h, p);
-    return art;
-  }
-
-  function toggleSkills() {
-    if (!skillsLoaded) {
-      const skills = [
-        { name: '.NET Core | C# | VB.NET', level: 'Advanced' },
-        { name: 'ASP.NET MVC | Razor Pages', level: 'Advanced' },
-        { name: 'PostgreSQL | SQL Server', level: 'Advanced' },
-        { name: 'HTML5 | CSS3 | JS', level: 'Advanced' },
-        { name: 'Agile & Testing', level: 'Intermediate' }
-      ];
-
-      skillsList.innerHTML = '';
-      for (let i = 0; i < skills.length; i++) {
-        const card = formatSkillCard(skills[i]);
-        skillsList.appendChild(card);
-      }
-
-      skillsBtn.textContent = 'Hide Technical Skills';
-      skillsLoaded = true;
-    } else {
-      skillsList.innerHTML = '';
-      skillsBtn.textContent = 'View Technical Skills';
-      skillsLoaded = false;
-    }
-  }
+  const SKILLS = [
+    { name: '.NET Core · C# · VB.NET',    level: 'Advanced' },
+    { name: 'ASP.NET MVC · Razor Pages',  level: 'Advanced' },
+    { name: 'PostgreSQL · SQL Server',     level: 'Advanced' },
+    { name: 'HTML5 · CSS3 · JavaScript',  level: 'Advanced' },
+    { name: 'Git · Agile · Testing',       level: 'Intermediate' },
+  ];
 
   if (skillsBtn && skillsList) {
-    skillsBtn.addEventListener('click', toggleSkills);
-  }
+    skillsBtn.setAttribute('aria-expanded', 'false');
 
-  // -------------------------------
-  // Theme toggle with persistence
-  // -------------------------------
-  
-   const themeBtn = document.createElement('button');
-   themeBtn.textContent = '☀️ Light/Dark';
-   themeBtn.style.cssText = 'position:fixed;right:1rem;bottom:1rem;z-index:999;';
-   document.body.appendChild(themeBtn);
+    skillsBtn.addEventListener('click', () => {
+      const isOpen = skillsList.classList.toggle('open');
+      skillsBtn.setAttribute('aria-expanded', String(isOpen));
+      skillsBtn.textContent = isOpen ? '− Hide skills' : '+ Show skills';
 
-  // Apply saved theme on load
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') {
-    document.body.classList.add('dark');
-  }
-
-  // Toggle theme + save preference
-  themeBtn.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-  if (document.body.classList.contains('dark')) {
-    localStorage.setItem('theme', 'dark');
-  } else {
-    localStorage.setItem('theme', 'light');
-  }
-});
-
-  
-  // ----------------------------------------
-  // Contact form (live preview + validation)
-  // ----------------------------------------
-  const message = $('#message');
-  const preview = $('#live-preview');
-  if (message && preview) {
-    message.addEventListener('input', () => {
-      preview.textContent = message.value;
+      if (isOpen && skillsList.children.length === 0) {
+        const frag = document.createDocumentFragment();
+        SKILLS.forEach(skill => {
+          const card = document.createElement('div');
+          card.className = 'skill-card';
+          card.innerHTML = `<h4>${skill.name}</h4><span class="skill-level">${skill.level}</span>`;
+          frag.appendChild(card);
+        });
+        skillsList.appendChild(frag);
+      }
     });
   }
 
+  // ============================================================
+  // CONTACT FORM
+  // ============================================================
   const contactForm = $('#contact-form');
-  const result = $('#form-result');
-  if (contactForm) {
+  const formResult  = $('#form-result');
+  const messageBox  = $('#message');
+  const charCount   = $('#char-count');
+
+  // Character counter
+  if (messageBox && charCount) {
+    messageBox.addEventListener('input', () => {
+      charCount.textContent = `${messageBox.value.length} / ${messageBox.maxLength}`;
+    });
+  }
+
+  // Form submit
+  if (contactForm && formResult) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const required = ['name', 'email', 'message'];
-      let errors = [];
+      formResult.className = 'form-result';
 
-      for (let i = 0; i < required.length; i++) {
-        const id = required[i];
-        const el = document.getElementById(id);
-        if (!el || !el.value.trim()) {
-          errors.push(id);
-        }
-      }
+      const name    = $('#name')?.value.trim();
+      const email   = $('#email')?.value.trim();
+      const message = $('#message')?.value.trim();
+      const errors  = [];
 
-      const emailVal = document.getElementById('email')?.value || '';
-      if (emailVal && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
-        errors.push('email-format');
-      }
+      if (!name)    errors.push('Name is required.');
+      if (!email)   errors.push('Email is required.');
+      if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push('Please enter a valid email.');
+      if (!message) errors.push('Message is required.');
 
       if (errors.length) {
-        result.textContent = 'Please complete the required fields correctly: ' + errors.join(', ');
-        result.style.color = 'crimson';
+        formResult.textContent = errors.join(' ');
+        formResult.className = 'form-result error';
         return;
       }
 
-      result.style.color = 'initial';
-      result.textContent = 'Sending message...';
+      const submitBtn = contactForm.querySelector('[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+      }
+
       setTimeout(() => {
-        result.textContent = 'Message sent! (Simulation)';
-        result.style.color = 'crimson';		
+        formResult.textContent = '✓ Message sent! I\'ll get back to you soon.';
+        formResult.className = 'form-result success';
         contactForm.reset();
-        preview.textContent = '';
+        if (charCount) charCount.textContent = '0 / 500';
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message →';
+        }
       }, 900);
     });
   }
 
-  // --------------------------------------
-  // Character counter for message textarea
-  // --------------------------------------
+  // ============================================================
+  // SCROLL REVEAL
+  // IntersectionObserver — progressive enhancement
+  // ============================================================
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          // Stagger delay for sibling cards
+          const delay = i * 60;
+          entry.target.style.transitionDelay = `${delay}ms`;
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-	const messageBox = document.getElementById('message');
-	const charCount = document.getElementById('char-count');
+    $$('.reveal').forEach(el => observer.observe(el));
+  } else {
+    // Fallback: show everything immediately
+    $$('.reveal').forEach(el => el.classList.add('visible'));
+  }
 
-	if (messageBox && charCount) {
-		messageBox.addEventListener('input', () => {
-		charCount.textContent = `(${messageBox.value.length} / ${messageBox.maxLength})`;
-	});
-	}
-}); 
+});
