@@ -1,55 +1,91 @@
 <!--
   Author: Olivier César Muvuzankwaya
-  Project: My Portfolio Project
   File: contact.html
-  Updated: 2026/04/18
 -->
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Olivier César Muvuzankwaya</title>
+  <title>Contact — Olivier César Muvuzankwaya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" href="assets/images/logo.png" type="image/x-icon" />
 </head>
-
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <header>
     <nav class="main-nav" aria-label="Main navigation">
-      <div class="logo">
-        <img src="assets/images/resume.png" alt="App Logo" />
-        <div>
-          <h1 class="site-title">Olivier César Muvuzankwaya</h1>
-        </div>
-      </div>
-      <button id="menu-toggle-4" aria-expanded="false" aria-controls="primary-menu-4">☰</button>
-      <ul id="primary-menu-4" class="nav-list">
+      <a href="index.html" class="logo">
+        <img src="assets/images/resume.png" alt="" aria-hidden="true" />
+        <span class="site-title">Olivier César</span>
+      </a>
+      <ul id="primary-nav" class="nav-list" role="list">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="gallery.html">Projects</a></li>
         <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
+      <div class="nav-controls">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme">🌓</button>
+        <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">☰</button>
+      </div>
     </nav>
   </header>
 
-  <main>
-    <section>
-      <h2 id="contact-heading">Contact Me</h2>
-      <form id="contact-form" action="#" method="post" novalidate>
-        <label for="name">Name</label><br>
-        <input id="name" name="name" type="text" required><br>
-        <label for="email">Email</label><br>
-        <input id="email" name="email" type="email" required><br>
-        <label for="message">Message <span id="char-count">(0 / 500)</span></label><br>
-		<textarea id="message" name="message" rows="6" maxlength="500" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-      <br>
-      <div id="form-result" role="status" aria-live="polite"></div>
-    </section>
+  <main id="main-content">
+    <div class="contact-layout">
+
+      <div class="contact-info reveal">
+        <span class="section-label">Let's talk</span>
+        <h2>Get in Touch</h2>
+        <p>I'm actively looking for Junior/Intermediate .NET Developer roles in Canada. Feel free to reach out via email, LinkedIn, or the form.</p>
+
+        <div class="contact-methods">
+          <a href="mailto:olicesar@email.com" class="contact-method">
+            <span class="contact-method-icon">📧</span>
+            <div>
+              <div class="contact-method-label">Email</div>
+              <div class="contact-method-value">olicesar@email.com</div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/muvuzankwaya-olivier-cesar" class="contact-method" target="_blank" rel="noopener">
+            <span class="contact-method-icon">🔗</span>
+            <div>
+              <div class="contact-method-label">LinkedIn</div>
+              <div class="contact-method-value">Olivier César Muvuzankwaya</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="form-card reveal">
+        <span class="section-label">Send a message</span>
+        <form id="contact-form" novalidate aria-label="Contact form">
+          <div class="form-group">
+            <label class="form-label" for="name">Name</label>
+            <input class="form-input" id="name" name="name" type="text" required placeholder="Your name" autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" id="email" name="email" type="email" required placeholder="you@example.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">
+              Message
+              <span class="char-counter" id="char-count">0 / 500</span>
+            </label>
+            <textarea class="form-textarea" id="message" name="message" rows="6" maxlength="500" required placeholder="What's on your mind?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Message →</button>
+        </form>
+        <div id="form-result" class="form-result" role="status" aria-live="polite"></div>
+      </div>
+
+    </div>
   </main>
 
   <footer>
@@ -58,5 +94,4 @@
 
   <script src="js/scripts.js" defer></script>
 </body>
-
 </html>
